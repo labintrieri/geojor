@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grajaú e Parque D.Pedro II lideram concentração de poluentes em SP</title>
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      border-bottom: 2px solid #333;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .publication-date {
+      font-style: italic;
+      color: #666;
+    }
+
+    article {
+      font-size: 1.1em;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    #heatmap,
+    #area-chart {
+      margin: 30px 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    .recharts-wrapper {
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      article {
+        font-size: 1em;
+      }
+    }
+
+    .highlight {
+      background-color: #ffffd9;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    blockquote {
+      margin: 20px 0;
+      padding: 10px 20px;
+      border-left: 5px solid #333;
+      background-color: #f9f9f9;
+      font-style: italic;
+    }
+  </style>
+
+
+</head>
+
+<body class="bg-gray-100">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold mb-2">Grajaú e Parque D.Pedro II contam com maior concentração de material
+        particulado fino em São Paulo em agosto, diz Cetesb</h1>
+      <p class="text-gray-600 italic">Publicado em 25 de setembro de 2024</p>
+    </header>
+
+    <article class="bg-white p-6 rounded-lg shadow-md">
+      <p class="mb-4">Atualmente, o Estado de São Paulo enfrenta uma crise ambiental sem precedentes, registrando os
+        piores índices de qualidade do ar em 40 anos, segundo a Companhia Ambiental do Estado de São Paulo (CETESB). Na
+        região metropolitana, a concentração de poluentes, como o material particulado (MP 2.5), aumentou nas estações
+        de monitoramento da qualidade do ar.</p>
+
+      <p class="mb-4">Grajaú-Paralheiros teve a pior concentração de material particulado (MP 2.5) na Grande São Paulo
+        em agosto, com base em boletins mensais da CETESB de janeiro a agosto deste ano, com a qualidade do ar na região
+        atingindo o índice de muito ruim em 7% dos dias do mês. De acordo com a Organização das Nações Unidas (ONU), o
+        MP 2.5 é um dos poluentes mais nocivos à saúde humana. Na região, 57% da qualidade do ar foi considerada boa,
+        33% moderada e 3% ruim.</p>
+
+      <img src="grafico.png" alt="imagem" class="my-4 max-w-full h-auto">
+
+      <p class="mb-4">O material particulado consiste em partículas finas que são invisíveis a olho nu, mas se tornam
+        perceptíveis como névoa em áreas altamente poluídas, estando presentes tanto dentro quanto fora das residências.
+        A Cetesb aponta que as principais fontes de emissão incluem veículos automotores, processos industriais, queima
+        de biomassa e ressuspensão de poeira.</p>
+
+      <div id="root" class="my-8"></div>
+
+      <p class="mb-4">Segundo a companhia, o tamanho das partículas está diretamente ligado ao seu potencial de causar
+        problemas de saúde: quanto menores, mais sérios os efeitos. As emissões de material particulado conseguem
+        penetrar profundamente nos pulmões e na corrente sanguínea, aumentando o risco de mortes por doenças cardíacas,
+        pulmonares, derrames e câncer.</p>
+
+      <p class="mb-4">Ainda entre as regiões que apresentaram as piores qualidades, aparece o Parque D.Pedro II, que
+        também apresenta cerca de 3% de sua qualidade do ar como "muito ruim". Na região, 52% da qualidade do ar é
+        considerada boa, 26% é tida como moderada e 19% é considerada como ruim. Junto com Grajáu, essas são as duas
+        únicas regiões a apresentarem uma qualidade tão baixa no ano.</p>
+
+      <p class="mb-4">Marginal Pinheiros é a terceira região com a pior qualidade do ar no mês, com 24% da qualidade
+        considerada ruim, 31% como moderada em agosto e 45% classificada como boa.</p>
+
+      <h2 class="text-xl font-bold mt-6 mb-4">Crise na qualidade do ar é antiga</h2>
+
+      <p class="mb-4">O País passa pela pior seca em sete décadas. A crise desencadeou incêndios florestais,
+        majoritariamente criminosos segundo o governo, gerou ondas de fumaça, secou rios, dificultou o atendimento a
+        comunidades isoladas e provocou problemas de saúde, especialmente respiratórios.</p>
+
+      <p class="mb-4">Ao longo do mês de setembro, o estado de São Paulo liderou o ranking de cidade com pior qualidade
+        do ar no mundo, segundo dados site suíço IQAir. A piora da qualidade do ar, na verdade, vem acontecendo de forma
+        progressiva desde o início do ano, segundo dados compilados pela reportagem com base em informações da Cetesb.
+      </p>
+
+      <p class="mb-4">Desde março, diversas regiões começaram a registrar qualidade do ar moderada com mais frequência.
+        Em abril, 19 das 24 regiões monitoradas pela Cetesb apresentaram aumento nos dias com ar moderado.</p>
+
+      <p class="mb-4">Em junho, regiões como a Cidade Universitária da USP e Grajaú-Parelheiros começaram a registrar ar
+        ruim. Naquele mês, o Pico do Jaraguá, conhecido por sua área verde, foi a única região com qualidade de ar 100%
+        boa. Em julho, nenhuma região manteve esse índice, com a USP registrando 20% de dias ruins e Osasco 16%.</p>
+    </article>
+  </div>
+
+  <script type="text/babel">
+    const AirQualityHeatmap = () => {
+      const [searchTerm, setSearchTerm] = React.useState('');
+
+      const stations = [
+        'Capão Redondo', 'Carapicuíba', 'Cid.Universitária-USP-Ipen', 'Congonhas',
+        'Grajaú-Parelheiros', 'Guarulhos-Paço Municipal', 'Guarulhos-Pimentas',
+        'Ibirapuera', 'Interlagos', 'Itaim Paulista', 'Marg.Tietê-Ponte dos Remédios',
+        'Mauá', 'Mooca', 'Nossa Senhora do Ó', 'Osasco', 'Parque D.Pedro II',
+        'Perus', 'Pico do Jaraguá', 'Pinheiros', 'S.Bernardo-Centro', 'Santana',
+        'Santo Amaro', 'Taboão da Serra'
+      ];
+
+      const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago'];
+
+      const data = {
+        'Capão Redondo': [100, 100, 100, 85, 79, 47, 55, 48],
+        'Carapicuíba': [100, 100, 100, 90, 72, 40, 48, 45],
+        'Cid.Universitária-USP-Ipen': [100, 100, 100, 96, 97, 39, 29, 55],
+        'Congonhas': [100, 100, 100, 75, 83, 59, 46, 55],
+        'Grajaú-Parelheiros': [100, 100, 84, 80, 61, 54, 61, 57],
+        'Guarulhos-Paço Municipal': [100, 100, 100, 90, 77, 50, 52, 55],
+        'Guarulhos-Pimentas': [100, 100, 100, 88, 65, 60, 58, 58],
+        'Ibirapuera': [100, 100, 100, 97, 97, 80, 74, 65],
+        'Interlagos': [100, 100, 100, 93, 94, 50, 65, 57],
+        'Itaim Paulista': [100, 100, 100, 93, 71, 33, 58, 55],
+        'Marg.Tietê-Ponte dos Remédios': [97, 97, 87, 70, 56, 27, 45, 45],
+        'Mauá': [100, 100, 96, 86, 72, 40, null, 56],
+        'Mooca': [100, 100, 100, 93, 88, 53, 54, 68],
+        'Nossa Senhora do Ó': [100, 100, 100, 100, 93, 63, 78, 65],
+        'Osasco': [100, 100, 90, 86, 61, 30, 45, 37],
+        'Parque D.Pedro II': [100, 100, 100, 93, 67, 47, 45, 52],
+        'Perus': [100, 100, 100, 100, 100, 60, 46, 52],
+        'Pico do Jaraguá': [100, 100, 100, 93, 100, 100, 90, 77],
+        'Pinheiros': [100, 100, 100, 93, 87, 50, 52, 55],
+        'S.Bernardo-Centro': [100, 100, 94, 100, 97, 77, 71, 68],
+        'Santana': [100, 100, 100, 93, 77, 50, 58, 58],
+        'Santo Amaro': [100, 100, 92, null, 91, 50, 67, 54],
+        'Taboão da Serra': [100, 94, 100, 96, 81, 45, null, null]
+      };
+
+      const getColor = (value) => {
+        if (value === null) return 'bg-gray-300';
+        if (value >= 90) return 'bg-green-500';
+        if (value >= 70) return 'bg-yellow-500';
+        if (value >= 50) return 'bg-orange-500';
+        return 'bg-red-500';
+      };
+
+      const getTextColor = (value) => {
+        if (value === null) return 'text-gray-500';
+        return value >= 70 ? 'text-black' : 'text-white';
+      };
+
+      const filteredStations = stations.filter(station =>
+        station.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+      return (
+        <div className="w-full overflow-x-auto p-4">
+          <h2 className="text-xl font-bold mb-2">Confira a concentração de material particulado fino (MP 2,5) na região metropolitana de São Paulo de janeiro a agosto</h2>
+          <p className="text-gray-600 mb-4">Dados extraídos de boletins mensais divulgados pela Companhia Ambiental do Estado de São Paulo (Cetesb) mostram a presença do poluente nas 24 estações de medição da cidade associada parâmetros de saúde</p>
+          <div className="mb-4">
+            <input
+              type="text"
+              placeholder="Buscar estação..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+          <p className="mb-2 font-semibold">Porcentagem de dias com qualidade do ar "boa"</p>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="border p-2">Estação</th>
+                {months.map(month => (
+                  <th key={month} className="border p-2">{month}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {filteredStations.map((station, index) => (
+                <tr key={index}>
+                  <td className="border p-2 font-semibold">{station}</td>
+                  {months.map((month, monthIndex) => (
+                    <td key={month} className={`border p-2 ${getColor(data[station][monthIndex])} ${getTextColor(data[station][monthIndex])}`}>
+                      {data[station][monthIndex] !== null ? `${data[station][monthIndex]}%` : 'N/A'}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="mt-4 flex flex-wrap gap-4">
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-green-500 mr-2"></div>
+              <span>Muito boa (90-100%)</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-yellow-500 mr-2"></div>
+              <span>Boa (70-89%)</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-orange-500 mr-2"></div>
+              <span>Moderada (50-69%)</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-red-500 mr-2"></div>
+              <span>Ruim (&lt;50%)</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-gray-300 mr-2"></div>
+              <span>Dados indisponíveis</span>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<AirQualityHeatmap />, document.getElementById('root'));
+  </script>
+</body>
+
+</html>
