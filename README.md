@@ -1,2 +1,3 @@
-# geojor
-Trabalho final na disciplina de Geojornalismo
+# Trabalho final na disciplina de Geojornalismo
+
+Laura Intrieri, Beatriz Capirazi e Maria Eduarda Nascimento
